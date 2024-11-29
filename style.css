@@ -1,0 +1,250 @@
+/* *Font Import* */
+@import url("https://fonts.googleapis.com/css2?family=Outfit:wght@100..900&family=Young+Serif&display=swap");
+
+/* *Variables* */
+:root {
+  --white: hsl(0, 0%, 100%);
+  --bgcolor: hsl(30, 54%, 90%);
+  --stone150: hsl(30, 18%, 87%);
+  --stone600: hsl(30, 10%, 34%);
+  --stone900: hsl(24, 5%, 18%);
+  --brown800: hsl(14, 45%, 36%);
+  --rose800: hsl(332, 51%, 32%);
+  --rose50: hsl(330, 100%, 98%);
+
+  --youngserif: 400;
+  --outfit400: 400;
+  --outfit600: 600;
+  --outfit700: 700;
+}
+
+/* *CSS RESET* */
+/* 1. Use a more-intuitive box-sizing model */
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+/* 2. Remove default margin */
+* {
+  margin: 0;
+}
+
+body {
+  /* 3. Add accessible line-height */
+  line-height: 1.5;
+  /* 4. Improve text rendering */
+  -webkit-font-smoothing: antialiased;
+}
+
+/* 5. Improve media defaults */
+img,
+picture,
+video,
+canvas,
+svg {
+  display: block;
+  max-width: 100%;
+}
+
+/* 6. Inherit fonts for form controls */
+input,
+button,
+textarea,
+select {
+  font: inherit;
+}
+
+/* 7. Avoid text overflows */
+p,
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  overflow-wrap: break-word;
+}
+
+/* 8. Improve line wrapping */
+p {
+  text-wrap: pretty;
+}
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  text-wrap: balance;
+}
+
+/* *Main CSS* */
+
+body {
+  background-color: var(--bgcolor);
+  font-size: 16px;
+  font-family: "Outfit", serif;
+  font-optical-sizing: auto;
+  /* font-weight: <weight>; */
+  font-style: normal;
+  color: var(--stone600);
+  line-height: 2rem;
+}
+
+main {
+  min-height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-shrink: 0;
+}
+
+.container {
+  background-color: var(--white);
+  height: max-content;
+  width: 60vw;
+  padding: 3%;
+  border-radius: 1rem;
+}
+
+.title,
+.ingre-title,
+.intruc-title,
+.nutri-title {
+  font-family: "Young Serif", serif;
+  font-weight: 400;
+  font-style: normal;
+}
+
+.ingre-title,
+.intruc-title,
+.nutri-title,
+.nutri-values {
+  color: var(--brown800);
+}
+
+.ingre-title,
+.intruc-title,
+.nutri-title {
+  padding-bottom: 2vh;
+}
+
+.ingredients,
+.instructions {
+  border-bottom: 1px solid #ddd;
+  padding-bottom: 3.5vh;
+}
+
+.intruc-ol .intruc-li::marker {
+  color: var(--brown800);
+  font-weight: bold;
+}
+
+strong {
+  font-weight: var(--outfit700);
+  color: var(--stone900);
+}
+
+/* *picture css* */
+picture img {
+  width: 100%;
+  border-radius: 1rem;
+}
+
+/* *content css* */
+.content {
+  margin-top: 5vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-evenly;
+  gap: 3.5vh;
+}
+
+.title {
+  color: var(--stone900);
+  /* font-weight: bold; */
+}
+
+/* *prep-time* */
+.prep-time {
+  background-color: var(--rose50);
+  height: fit-content;
+  width: 100%;
+  padding: 3.5%;
+  border-radius: 1rem;
+  /* margin-top: ; */
+}
+.prep-title {
+  color: var(--rose800);
+}
+
+/* *ingredients css* */
+
+/* *instructions css* */
+.instructions {
+  text-align: justify;
+}
+
+/* *nutritions* */
+
+.nutrition table {
+  width: 100%;
+  border-collapse: collapse; /* Allows border-bottom to work */
+  margin-top: 2vh;
+}
+
+.nutrition table tr {
+  position: relative; /* Enables pseudo-element positioning */
+}
+
+.nutrition table tr td {
+  padding: 0.8rem 2.56rem; /* Adds vertical spacing within cells */
+}
+
+.nutrition table tr:not(:last-child)::after {
+  content: "";
+  position: absolute;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  height: 1rem; /* Space between rows */
+  background: white; /* Matches the table's background */
+}
+
+.nutrition table tr:not(:last-child) {
+  border-bottom: 1px solid #ddd; /* Adds the border */
+}
+
+.nutri-values {
+  font-weight: bold;
+}
+
+.attribution {
+  font-size: 11px;
+  text-align: center;
+}
+.attribution a {
+  color: hsl(228, 45%, 44%);
+}
+
+/* *media queries* */
+
+@media (max-width: 767px) {
+  .container {
+    padding: 7%;
+  }
+
+  .nutrition table tr td {
+    padding: 0.6rem 0.8rem; /* Reduces padding for smaller screens */
+  }
+
+  .nutrition table tr:not(:last-child)::after {
+    height: 0.5rem; /* Decreases space between rows */
+  }
+
+  .nutrition table {
+    font-size: 0.9rem; /* Scales down text slightly for compactness */
+  }
+}
